@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1060177012074",
+    "project_id": "integrapracas-b6744",
+    "storage_bucket": "integrapracas-b6744.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060177012074:android:7d8c90cc72e7fda9b13113",
+        "android_client_info": {
+          "package_name": "com.example.integrapracas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060177012074-rg23a58gegb7tqqms4vt1kf17099hdea.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.integrapracas",
+            "certificate_hash": "a306eab1270254305e93b55992af87c25b2784ce"
+          }
+        },
+        {
+          "client_id": "1060177012074-m0q2s5hccrdb1tmn5p3ajef8o490c3vp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ5M7prBh1IK88K_iccyWsWVJUKDUFRrc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060177012074-m0q2s5hccrdb1tmn5p3ajef8o490c3vp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
