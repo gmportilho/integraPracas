@@ -2,8 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:integrapracas/models/praca.dart';
-import 'package:integrapracas/views/infoPraca.dart';
-import 'package:integrapracas/views/login.dart';
 import 'package:geolocator/geolocator.dart';
 
 class ListaPracas extends StatefulWidget {
@@ -62,10 +60,12 @@ class _ListaPracasState extends State<ListaPracas> {
                       width: double.infinity,
                       child: GestureDetector(
                         onTap: () {
+                          print(getLocalizacao());
                           var nomePraca = doc['nome'];
                           var idPraca = doc.id;
+                          var capaPraca = doc['capa'];
                           Navigator.of(context).pushNamed('/comments',
-                              arguments: Praca(id: idPraca, nome: nomePraca));
+                              arguments: Praca(id: idPraca, nome: nomePraca, capa: capaPraca));
                         },
                         child: Card(
                           elevation: 5,
@@ -79,7 +79,7 @@ class _ListaPracasState extends State<ListaPracas> {
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     image: DecorationImage(
-                                        image: AssetImage('${doc.id}_1.png'),
+                                        image: NetworkImage(doc['capa']),
                                         fit: BoxFit.fill),
                                   ),
                                 ),
@@ -126,12 +126,15 @@ class _ListaPracasState extends State<ListaPracas> {
 class Pra {
   String id;
   String nome;
+  String capa;
 
   get getId => this.id;
 
   get getNome => this.nome;
 
-  Pra(this.id, this.nome);
+  get getCapa => this.capa;
+
+  Pra(this.id, this.nome, this.capa);
 }
 
 class SideDrawer extends StatelessWidget {
@@ -225,7 +228,6 @@ class SideDrawer extends StatelessWidget {
                                       onPressed: () async {
                                         await auth.currentUser!.delete();
                                         Navigator.of(context).pushNamed('/');
-                                        ;
                                       },
                                       child: Text('Sim, tenho certeza',
                                           style: TextStyle(

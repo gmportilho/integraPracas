@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:integrapracas/models/praca.dart';
-import 'package:integrapracas/views/comentarioPraca.dart';
-import 'package:integrapracas/views/listaPracas.dart';
 
 class InfoPracaView extends StatefulWidget {
   const InfoPracaView({Key? key}) : super(key: key);
@@ -26,7 +24,7 @@ class _InfoPracaViewState extends State<InfoPracaView> {
       ),
       body: Column(
         children: [
-          Image.asset('assets/${dadosPraca.id}_1.png'),
+          Image.network(dadosPraca.capa),
           SizedBox(
               height: 100,
               width: double.infinity,

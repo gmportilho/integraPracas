@@ -1,8 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:integrapracas/models/praca.dart';
-import 'package:integrapracas/views/listaPracas.dart';
 import 'cadastro.dart';
 
 class LoginView extends StatelessWidget {
@@ -12,11 +9,6 @@ class LoginView extends StatelessWidget {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
-    getLocalizacao() async {
-      Position? position = await Geolocator.getLastKnownPosition();
-      print(position);
-    }
-
     return Scaffold(
         backgroundColor: Theme.of(context).backgroundColor,
         // appBar: AppBar(title: Text('Cadastro')),
