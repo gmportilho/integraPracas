@@ -175,14 +175,13 @@ class _InputEmailState extends State<InputEmail> {
           controller: widget.controller,
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
-                    fillColor: Colors.white,
-                    filled: true,
-                    focusColor: Color(0XFF7A9337),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
-                    border: OutlineInputBorder(),
-                    hintText: 'Email'),
+              fillColor: Colors.white,
+              filled: true,
+              focusColor: Color(0XFF7A9337),
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
+              border: OutlineInputBorder(),
+              hintText: 'Email'),
           validator: (email) {
             if ((email!.isEmpty)) {
               return 'Insira um email';
@@ -219,15 +218,15 @@ class _InputSenhaState extends State<InputSenha> {
         Center(
           child: TextFormField(
             obscureText: true,
-           decoration: InputDecoration(
-                    fillColor: Colors.white,
-                    filled: true,
-                    focusColor: Color(0XFF7A9337),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
-                    border: OutlineInputBorder(),
-                    hintText: 'Senha'),
+            decoration: InputDecoration(
+                fillColor: Colors.white,
+                filled: true,
+                focusColor: Color(0XFF7A9337),
+                focusedBorder: OutlineInputBorder(
+                    borderSide:
+                        BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
+                border: OutlineInputBorder(),
+                hintText: 'Senha'),
             validator: (value) {
               if (value!.isEmpty) {
                 return 'Insira uma senha';
@@ -249,7 +248,7 @@ class BotaoVoltar extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-          primary: Colors.white,
+          backgroundColor: Colors.white,
           padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
           side: BorderSide(color: Colors.black)),
       child: Text(

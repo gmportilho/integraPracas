@@ -9,6 +9,7 @@ class UserComments extends StatelessWidget {
   Widget build(BuildContext context) {
     final _firestore = FirebaseFirestore.instance;
     final auth = FirebaseAuth.instance;
+
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
@@ -39,17 +40,21 @@ class UserComments extends StatelessWidget {
                           itemBuilder: (_, index) {
                             var doc = snapshot.data!.docs[index];
                             return Slidable(
-                              actionPane: SlidableScrollActionPane(),
-                              actions: [
-                                IconSlideAction(
-                                  caption: 'Apagar',
-                                  icon: Icons.delete,
-                                  color: Colors.red,
-                                  onTap: () {
-                                    _firestore.collection("comentarios").doc(doc.id).delete();
-                                  },
-                                )
-                              ],
+                              startActionPane: ActionPane(
+                                motion: const BehindMotion(),
+                                children: [
+                                  SlidableAction(
+                                      label: 'Apagar',
+                                      icon: Icons.delete,
+                                      backgroundColor: Colors.red,
+                                      onPressed: (buildContext) {
+                                        _firestore
+                                            .collection("comentarios")
+                                            .doc(doc.id)
+                                            .delete();
+                                      })
+                                ],
+                              ),
                               child: Card(
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,

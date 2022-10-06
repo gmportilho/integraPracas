@@ -19,7 +19,7 @@ class ComentarioPraca extends StatelessWidget {
         backgroundColor: Theme.of(context).backgroundColor,
         appBar: AppBar(
           centerTitle: true,
-          title: Text('Adicionar Comentário'),
+          title: Text('Sugestão de melhoria'),
           leading: BackButton(),
         ),
         body: Column(children: [
@@ -27,13 +27,14 @@ class ComentarioPraca extends StatelessWidget {
             padding: EdgeInsets.all(50),
             child: Column(
               children: [
+                //Container(
+                    //alignment: Alignment.centerLeft, 
+                   // child: Text('Categoria')),
+                //SizedBox(height: 3),
+                //Categorias(),
+                //SizedBox(height: 50),
                 Container(
-                    alignment: Alignment.centerLeft, child: Text('Categoria')),
-                SizedBox(height: 3),
-                Categorias(),
-                SizedBox(height: 50),
-                Container(
-                    alignment: Alignment.centerLeft, child: Text('Seu texto')),
+                    alignment: Alignment.centerLeft, child: Text('Descreva a sugestão de melhoria:')),
                 SizedBox(height: 3),
                 TextFormField(
                     controller: comentarioPraca,
@@ -54,9 +55,9 @@ class ComentarioPraca extends StatelessWidget {
                       db.collection('comentarios').add({
                         'usuario': user!.displayName,
                         'userid': user.uid,
-                        'categoria':
-                            Provider.of<ValueCategoria>(context, listen: false)
-                                .getCategoriaValue,
+                        'categoria': 'Sugetão de Melhoria',
+                            //Provider.of<ValueCategoria>(context, listen: false)
+                                //.getCategoriaValue,
                         'comentario': comentarioPraca.text,
                         'praca': dadosPraca.id,
                         'timestamp': Timestamp.now(),
@@ -71,44 +72,44 @@ class ComentarioPraca extends StatelessWidget {
   }
 }
 
-class Categorias extends StatefulWidget {
-  const Categorias({Key? key}) : super(key: key);
+//class Categorias extends StatefulWidget {
+  //const Categorias({Key? key}) : super(key: key);
 
-  @override
-  _CategoriasState createState() => _CategoriasState();
-}
+ // @override
+  //_CategoriasState createState() => _CategoriasState();
+//}
 
-class _CategoriasState extends State<Categorias> {
-  @override
-  Widget build(BuildContext context) {
-    String? categoriaValue;
-    return DropdownButtonFormField<String>(
-      value:
-          Provider.of<ValueCategoria>(context, listen: false).getCategoriaValue,
-      items: ["Manutenção", "Sugestão de Melhoria", "Evento"]
-          .map((label) => DropdownMenuItem(
-                child: Text(label),
-                value: label,
-              ))
-          .toList(),
-      onChanged: (value) {
-        Provider.of<ValueCategoria>(context, listen: false)
-            .setCategoriaValue(value);
-        setState(() {
-          categoriaValue = value!;
-        });
-      },
-    );
-  }
-}
+//class _CategoriasState extends State<Categorias> {
+  //@override
+  //Widget build(BuildContext context) {
+    //String? categoriaValue;
+    //return DropdownButtonFormField<String>(
+      //value:
+       //   Provider.of<ValueCategoria>(context, listen: false).getCategoriaValue,
+     // items: ["Manutenção", "Sugestão de Melhoria", "Evento"]
+        //  .map((label) => DropdownMenuItem(
+       //         child: Text(label),
+       //         value: label,
+     //         ))
+   //       .toList(),
+ //     onChanged: (value) {
+  //      Provider.of<ValueCategoria>(context, listen: false)
+//            .setCategoriaValue(value);
+        //setState(() {
+        //  categoriaValue = value!;
+      //  });
+    //  },
+   // );
+ // }
+//}
 
-class ValueCategoria extends ChangeNotifier {
-  String? categoriaValue;
+//class ValueCategoria extends ChangeNotifier {
+  //String? categoriaValue;
 
-  String? get getCategoriaValue => this.categoriaValue;
+  //String? get getCategoriaValue => this.categoriaValue;
 
-  void setCategoriaValue(String? value) {
-    this.categoriaValue = value;
-    notifyListeners();
-  }
-}
+  //void setCategoriaValue(String? value) {
+   // this.categoriaValue = value;
+   // notifyListeners();
+ // }
+//}

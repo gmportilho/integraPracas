@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:integrapracas/models/praca.dart';
-import 'package:geolocator/geolocator.dart';
 
 class ListaPracas extends StatefulWidget {
   const ListaPracas({Key? key}) : super(key: key);
@@ -13,16 +12,6 @@ class ListaPracas extends StatefulWidget {
 
 class _ListaPracasState extends State<ListaPracas> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-  getLocalizacao() async {
-    Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high);
-    return position;
-  }
-
-  testarloc() async {
-    bool isLocationServiceEnabled = await Geolocator.isLocationServiceEnabled();
-    return isLocationServiceEnabled;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,12 +49,14 @@ class _ListaPracasState extends State<ListaPracas> {
                       width: double.infinity,
                       child: GestureDetector(
                         onTap: () {
-                          print(getLocalizacao());
                           var nomePraca = doc['nome'];
                           var idPraca = doc.id;
                           var capaPraca = doc['capa'];
                           Navigator.of(context).pushNamed('/comments',
-                              arguments: Praca(id: idPraca, nome: nomePraca, capa: capaPraca));
+                              arguments: Praca(
+                                  id: idPraca,
+                                  nome: nomePraca,
+                                  capa: capaPraca));
                         },
                         child: Card(
                           elevation: 5,
@@ -214,7 +205,7 @@ class SideDrawer extends StatelessWidget {
                                 actions: [
                                   TextButton(
                                       style: ElevatedButton.styleFrom(
-                                          primary: Colors.white),
+                                          backgroundColor: Colors.white),
                                       onPressed: () {
                                         Navigator.of(context).pop();
                                       },
@@ -224,7 +215,7 @@ class SideDrawer extends StatelessWidget {
                                       )),
                                   TextButton(
                                       style: ElevatedButton.styleFrom(
-                                          primary: Colors.white),
+                                          backgroundColor: Colors.white),
                                       onPressed: () async {
                                         await auth.currentUser!.delete();
                                         Navigator.of(context).pushNamed('/');

@@ -31,11 +31,11 @@ class _InfoPracaViewState extends State<InfoPracaView> {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   elevation: 3,
-                  primary: Color(0xFFF5F1E0),
+                  backgroundColor: Color(0xFFF5F1E0),
                 ),
                 onPressed: () {
                   Navigator.of(context)
-                      .pushNamed('/addcomment', arguments: dadosPraca);
+                      .pushNamed('/selecionaCategoria', arguments: dadosPraca);
                 },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
