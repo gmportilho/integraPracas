@@ -10,7 +10,6 @@ import 'package:integrapracas/views/listaPracas.dart';
 import 'package:integrapracas/views/login.dart';
 import 'package:integrapracas/views/redefSenha.dart';
 import 'package:integrapracas/views/usuarioComments.dart';
-import 'package:provider/provider.dart';
 
 class App extends StatelessWidget {
   Widget build(BuildContext context) {
