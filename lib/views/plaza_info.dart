@@ -32,7 +32,7 @@ class _PlazaInfoViewState extends State<PlazaInfoView> {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   elevation: 3,
-                  backgroundColor: Color(0xFFF5F1E0),
+                  backgroundColor: AppColors.beige,
                 ),
                 onPressed: () {
                   Navigator.of(context).pushNamed(AppRoutes.SELECT_CATEGORY, arguments: dadosPraca);
@@ -50,7 +50,7 @@ class _PlazaInfoViewState extends State<PlazaInfoView> {
               )),
           Expanded(
             child: Container(
-                decoration: BoxDecoration(color: Color(0xFFF5F1E0)),
+                decoration: BoxDecoration(color: AppColors.beige),
                 padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
                 child: StreamBuilder<QuerySnapshot>(
                     stream: _firestore.collection('comentarios').where('praca', isEqualTo: dadosPraca.id).snapshots(),

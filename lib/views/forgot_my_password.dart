@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:integrapracas/themes/appcolors.dart';
 
 class ForgotMyPasswordView extends StatelessWidget {
   const ForgotMyPasswordView({Key? key}) : super(key: key);
@@ -35,8 +36,9 @@ class ForgotMyPasswordView extends StatelessWidget {
                   decoration: InputDecoration(
                       fillColor: Colors.white,
                       filled: true,
-                      focusColor: Color(0XFF7A9337),
-                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
+                      focusColor: AppColors.green,
+                      focusedBorder:
+                          OutlineInputBorder(borderSide: BorderSide(color: AppColors.lightGreen, width: 2.0)),
                       border: OutlineInputBorder(),
                       hintText: 'Email'),
                 ),

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:integrapracas/themes/appcolors.dart';
 import 'package:integrapracas/utils/routes.dart';
 
 class ChangePasswordView extends StatefulWidget {
@@ -98,8 +99,8 @@ class _InputSenhaState extends State<InputSenha> {
             decoration: InputDecoration(
                 fillColor: Colors.white,
                 filled: true,
-                focusColor: Color(0XFF7A9337),
-                focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
+                focusColor: AppColors.green,
+                focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.lightGreen, width: 2.0)),
                 border: OutlineInputBorder(),
                 hintText: 'Senha'),
             validator: (value) {

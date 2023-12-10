@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:integrapracas/themes/appcolors.dart';
 import 'package:integrapracas/utils/routes.dart';
 import 'package:integrapracas/views/change_user_data.dart';
 import 'package:integrapracas/views/change_password.dart';
@@ -26,12 +27,12 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.light,
-        primaryColor: Color(0xFF3D3129), //Marrom
-        backgroundColor: Color(0xFFF5F1E0), //Bege
+        primaryColor: AppColors.brown, //Marrom
+        backgroundColor: AppColors.beige, //Bege
         elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Color(0XFF7A9337)))),
+            style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(AppColors.green))),
         appBarTheme: AppBarTheme(
-          backgroundColor: Color(0xFF3D3129),
+          backgroundColor: AppColors.brown,
           titleTextStyle: TextStyle(color: Colors.white),
           iconTheme: IconThemeData(color: Colors.white),
         ),

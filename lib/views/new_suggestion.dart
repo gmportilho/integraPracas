@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:integrapracas/models/praca.dart';
+import 'package:integrapracas/themes/appcolors.dart';
 
 class NewSuggestionView extends StatelessWidget {
   const NewSuggestionView({Key? key}) : super(key: key);
@@ -40,9 +41,9 @@ class NewSuggestionView extends StatelessWidget {
                     decoration: InputDecoration(
                         fillColor: Colors.white,
                         filled: true,
-                        focusColor: Color(0XFF7A9337),
+                        focusColor: AppColors.green,
                         focusedBorder:
-                            OutlineInputBorder(borderSide: BorderSide(color: Color(0XFFBBCC8F), width: 2.0)))),
+                            OutlineInputBorder(borderSide: BorderSide(color: AppColors.lightGreen, width: 2.0)))),
                 SizedBox(height: 80),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(padding: EdgeInsets.all(30)),

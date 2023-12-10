@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:integrapracas/models/praca.dart';
+import 'package:integrapracas/themes/appcolors.dart';
 import 'package:integrapracas/utils/routes.dart';
 
 class HomeView extends StatefulWidget {
@@ -145,7 +146,7 @@ class SideDrawer extends StatelessWidget {
               ),
             ),
             decoration: BoxDecoration(
-              color: Color(0xFF3D3129),
+              color: AppColors.brown,
             ),
           ),
           Expanded(

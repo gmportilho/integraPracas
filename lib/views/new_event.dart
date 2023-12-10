@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:integrapracas/models/praca.dart';
+import 'package:integrapracas/themes/appcolors.dart';
 
 class NewEventView extends StatefulWidget {
   const NewEventView({Key? key}) : super(key: key);
@@ -68,9 +69,10 @@ class _NewEventViewState extends State<NewEventView> {
                       decoration: InputDecoration(
                           fillColor: Colors.white,
                           filled: true,
-                          focusColor: Color(0XFF7A9337),
+                          focusColor: AppColors.green,
                           focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Color(0XFFBBCC8F), width: 2.0, style: BorderStyle.solid)))),
+                              borderSide:
+                                  BorderSide(color: AppColors.lightGreen, width: 2.0, style: BorderStyle.solid)))),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.03,
                   ),
@@ -84,9 +86,9 @@ class _NewEventViewState extends State<NewEventView> {
                       decoration: InputDecoration(
                           fillColor: Colors.white,
                           filled: true,
-                          focusColor: Color(0XFF7A9337),
+                          focusColor: AppColors.green,
                           focusedBorder:
-                              OutlineInputBorder(borderSide: BorderSide(color: Color(0XFFBBCC8F), width: 2.0)))),
+                              OutlineInputBorder(borderSide: BorderSide(color: AppColors.lightGreen, width: 2.0)))),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.03,
                   ),
@@ -105,11 +107,12 @@ class _NewEventViewState extends State<NewEventView> {
                       fillColor: Colors.white,
                       hintText: getText(),
                       filled: true,
-                      focusColor: Color(0XFF7A9337),
-                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
+                      focusColor: AppColors.green,
+                      focusedBorder:
+                          OutlineInputBorder(borderSide: BorderSide(color: AppColors.lightGreen, width: 2.0)),
                       suffixIcon: Icon(
                         Icons.calendar_today_outlined,
-                        color: Color(0XFF7A9337),
+                        color: AppColors.green,
                       ),
                     ),
                   ),

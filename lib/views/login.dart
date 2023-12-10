@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:integrapracas/themes/appcolors.dart';
 import 'package:integrapracas/utils/routes.dart';
 import 'register.dart';
 
@@ -56,10 +57,10 @@ class LoginView extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.white,
                               padding: EdgeInsets.symmetric(horizontal: 70, vertical: 25),
-                              side: BorderSide(color: Color(0XFF7A9337))),
+                              side: BorderSide(color: AppColors.green)),
                           child: Text(
                             'Cadastre-se',
-                            style: TextStyle(color: Color(0XFF7A9337)),
+                            style: TextStyle(color: AppColors.green),
                           ),
                           onPressed: () {
                             Navigator.of(context).pushNamed(AppRoutes.REGISTER);

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:integrapracas/themes/appcolors.dart';
 import 'package:integrapracas/utils/routes.dart';
 
 class RegisterView extends StatefulWidget {
@@ -122,8 +123,8 @@ class _InputNomeState extends State<InputNome> {
                 decoration: InputDecoration(
                     fillColor: Colors.white,
                     filled: true,
-                    focusColor: Color(0XFF7A9337),
-                    focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
+                    focusColor: AppColors.green,
+                    focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.lightGreen, width: 2.0)),
                     border: OutlineInputBorder(),
                     hintText: 'Nome'),
                 validator: (value) {
@@ -165,8 +166,8 @@ class _InputSenhaState extends State<InputSenha> {
             decoration: InputDecoration(
                 fillColor: Colors.white,
                 filled: true,
-                focusColor: Color(0XFF7A9337),
-                focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
+                focusColor: AppColors.green,
+                focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.lightGreen, width: 2.0)),
                 border: OutlineInputBorder(),
                 hintText: 'Senha'),
             validator: (value) {
@@ -206,8 +207,8 @@ class _InputConfirmarSenhaState extends State<InputConfirmarSenha> {
                 decoration: InputDecoration(
                     fillColor: Colors.white,
                     filled: true,
-                    focusColor: Color(0XFF7A9337),
-                    focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
+                    focusColor: AppColors.green,
+                    focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.lightGreen, width: 2.0)),
                     border: OutlineInputBorder(),
                     hintText: 'Confirmação de Senha'),
                 validator: (value) {
@@ -246,8 +247,8 @@ class _InputEmailState extends State<InputEmail> {
           decoration: InputDecoration(
               fillColor: Colors.white,
               filled: true,
-              focusColor: Color(0XFF7A9337),
-              focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
+              focusColor: AppColors.green,
+              focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.lightGreen, width: 2.0)),
               border: OutlineInputBorder(),
               hintText: 'Email'),
           validator: (email) {

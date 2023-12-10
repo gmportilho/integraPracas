@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:integrapracas/models/praca.dart';
+import 'package:integrapracas/themes/appcolors.dart';
 import 'package:integrapracas/utils/routes.dart';
 
 class SelectCommentCategoryView extends StatelessWidget {
@@ -14,7 +15,7 @@ class SelectCommentCategoryView extends StatelessWidget {
         title: Text("Selecione a categoria"),
         centerTitle: true,
       ),
-      backgroundColor: Color(0xFFF5F1E0),
+      backgroundColor: AppColors.beige,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
