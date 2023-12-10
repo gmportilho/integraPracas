@@ -3,8 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
-class UserComments extends StatelessWidget {
-  const UserComments({Key? key}) : super(key: key);
+class UserCommentsView extends StatelessWidget {
+  const UserCommentsView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final _firestore = FirebaseFirestore.instance;
@@ -48,10 +48,7 @@ class UserComments extends StatelessWidget {
                                       icon: Icons.delete,
                                       backgroundColor: Colors.red,
                                       onPressed: (buildContext) {
-                                        _firestore
-                                            .collection("comentarios")
-                                            .doc(doc.id)
-                                            .delete();
+                                        _firestore.collection("comentarios").doc(doc.id).delete();
                                       })
                                 ],
                               ),
@@ -64,52 +61,32 @@ class UserComments extends StatelessWidget {
                                       child: Container(
                                         padding: EdgeInsets.all(10),
                                         child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
                                               Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                 children: [
                                                   Container(
                                                     child: Text(doc['usuario'],
-                                                        style: TextStyle(
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold)),
+                                                        style: TextStyle(fontWeight: FontWeight.bold)),
                                                   ),
                                                   Container(
-                                                      padding:
-                                                          EdgeInsets.all(5),
+                                                      padding: EdgeInsets.all(5),
                                                       decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              new BorderRadius
-                                                                      .all(
-                                                                  Radius.elliptical(
-                                                                      50, 50)),
-                                                          color: Colors
-                                                              .greenAccent),
-                                                      child: Text(
-                                                          doc['categoria'],
-                                                          style: TextStyle(
-                                                              color: Colors
-                                                                  .black)))
+                                                          borderRadius: new BorderRadius.all(Radius.elliptical(50, 50)),
+                                                          color: Colors.greenAccent),
+                                                      child:
+                                                          Text(doc['categoria'], style: TextStyle(color: Colors.black)))
                                                 ],
                                               ),
                                               SizedBox(height: 12),
-                                              Container(
-                                                  child:
-                                                      Text(doc['comentario'])),
+                                              Container(child: Text(doc['comentario'])),
                                               SizedBox(height: 20),
                                               Container(
                                                   child: Text(
                                                 'Praça: ${doc['nomePraca']}',
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 12),
+                                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
                                               ))
                                             ]),
                                       ),

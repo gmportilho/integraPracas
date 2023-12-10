@@ -3,18 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:integrapracas/utils/routes.dart';
 
-class AlterarDadosView extends StatefulWidget {
+class ChangeUserDataView extends StatefulWidget {
   @override
-  _AlterarDadosViewState createState() => _AlterarDadosViewState();
+  _ChangeUserDataViewState createState() => _ChangeUserDataViewState();
 }
 
-class _AlterarDadosViewState extends State<AlterarDadosView> {
+class _ChangeUserDataViewState extends State<ChangeUserDataView> {
   final auth = FirebaseAuth.instance;
   final formKey = GlobalKey<FormState>();
-  final emailController = TextEditingController(
-      text: '${FirebaseAuth.instance.currentUser?.email}');
-  final usuarioController = TextEditingController(
-      text: '${FirebaseAuth.instance.currentUser?.displayName}');
+  final emailController = TextEditingController(text: '${FirebaseAuth.instance.currentUser?.email}');
+  final usuarioController = TextEditingController(text: '${FirebaseAuth.instance.currentUser?.displayName}');
 
   // @override
   // void dispose() {
@@ -55,8 +53,7 @@ class _AlterarDadosViewState extends State<AlterarDadosView> {
                         SizedBox(height: 50),
                         Container(
                             alignment: Alignment.centerLeft,
-                            child: Text(
-                                'Para alterar sua senha, clique no botão abaixo:')),
+                            child: Text('Para alterar sua senha, clique no botão abaixo:')),
                         SizedBox(height: 3),
                         Container(
                           padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
@@ -81,15 +78,13 @@ class _AlterarDadosViewState extends State<AlterarDadosView> {
   Widget tituloAlterarDados() {
     return Container(
       padding: EdgeInsets.all(30),
-      child: Text('Alterar Dados',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36)),
+      child: Text('Alterar Dados', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36)),
     );
   }
 
   Widget botaoConfirmar() {
     return ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20)),
+        style: ElevatedButton.styleFrom(padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20)),
         child: const Text('Confirmar'),
         onPressed: () {
           if (formKey.currentState!.validate()) {
@@ -99,9 +94,8 @@ class _AlterarDadosViewState extends State<AlterarDadosView> {
                 content: Text('Alterações efetuadas com sucesso!'),
               ));
             auth.currentUser!.updateEmail(emailController.text);
-            auth.currentUser!
-                .updateDisplayName(usuarioController.text.toUpperCase());
-            Navigator.of(context).pushNamed(AppRoutes.HOME);
+            auth.currentUser!.updateDisplayName(usuarioController.text.toUpperCase());
+            Navigator.of(context).pushNamed(AppRoutes.HomeView);
           }
         });
   }
@@ -133,9 +127,7 @@ class _InputNomeState extends State<InputNome> {
                     fillColor: Colors.white,
                     filled: true,
                     focusColor: Color(0XFF7A9337),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
+                    focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
                     border: OutlineInputBorder(),
                     hintText: 'Nome'),
                 validator: (value) {
@@ -179,8 +171,7 @@ class _InputEmailState extends State<InputEmail> {
               fillColor: Colors.white,
               filled: true,
               focusColor: Color(0XFF7A9337),
-              focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
+              focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
               border: OutlineInputBorder(),
               hintText: 'Email'),
           validator: (email) {
@@ -223,9 +214,7 @@ class _InputSenhaState extends State<InputSenha> {
                 fillColor: Colors.white,
                 filled: true,
                 focusColor: Color(0XFF7A9337),
-                focusedBorder: OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
+                focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
                 border: OutlineInputBorder(),
                 hintText: 'Senha'),
             validator: (value) {
@@ -257,7 +246,7 @@ class BotaoVoltar extends StatelessWidget {
         style: TextStyle(color: Colors.black87),
       ),
       onPressed: () {
-        Navigator.of(context).pushNamed(AppRoutes.HOME);
+        Navigator.of(context).pushNamed(AppRoutes.HomeView);
       },
     );
   }

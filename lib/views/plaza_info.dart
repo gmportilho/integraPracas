@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:integrapracas/models/praca.dart';
 import 'package:integrapracas/utils/routes.dart';
 
-class InfoPracaView extends StatefulWidget {
-  const InfoPracaView({Key? key}) : super(key: key);
+class PlazaInfoView extends StatefulWidget {
+  const PlazaInfoView({Key? key}) : super(key: key);
 
   @override
-  _InfoPracaViewState createState() => _InfoPracaViewState();
+  _PlazaInfoViewState createState() => _PlazaInfoViewState();
 }
 
-class _InfoPracaViewState extends State<InfoPracaView> {
+class _PlazaInfoViewState extends State<PlazaInfoView> {
   @override
   Widget build(BuildContext context) {
     final _firestore = FirebaseFirestore.instance;
@@ -35,8 +35,7 @@ class _InfoPracaViewState extends State<InfoPracaView> {
                   backgroundColor: Color(0xFFF5F1E0),
                 ),
                 onPressed: () {
-                  Navigator.of(context)
-                      .pushNamed(AppRoutes.SELECT_CATEGORY, arguments: dadosPraca);
+                  Navigator.of(context).pushNamed(AppRoutes.SELECT_CATEGORY, arguments: dadosPraca);
                 },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -45,8 +44,7 @@ class _InfoPracaViewState extends State<InfoPracaView> {
                       Icons.message,
                       color: Colors.black,
                     ),
-                    Text('Adicionar Comentário',
-                        style: TextStyle(color: Colors.black)),
+                    Text('Adicionar Comentário', style: TextStyle(color: Colors.black)),
                   ],
                 ),
               )),
@@ -55,10 +53,7 @@ class _InfoPracaViewState extends State<InfoPracaView> {
                 decoration: BoxDecoration(color: Color(0xFFF5F1E0)),
                 padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
                 child: StreamBuilder<QuerySnapshot>(
-                    stream: _firestore
-                        .collection('comentarios')
-                        .where('praca', isEqualTo: dadosPraca.id)
-                        .snapshots(),
+                    stream: _firestore.collection('comentarios').where('praca', isEqualTo: dadosPraca.id).snapshots(),
                     builder: (_, snapshot) {
                       if (!snapshot.hasData) {
                         return Center(
@@ -80,42 +75,26 @@ class _InfoPracaViewState extends State<InfoPracaView> {
                                     child: Container(
                                       padding: EdgeInsets.all(10),
                                       child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                               children: [
                                                 Container(
                                                   child: Text(doc['usuario'],
-                                                      style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.bold)),
+                                                      style: TextStyle(fontWeight: FontWeight.bold)),
                                                 ),
                                                 Container(
-                                                    padding:
-                                                        EdgeInsets.fromLTRB(
-                                                            10, 0, 10, 0),
+                                                    padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                                                     decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            new BorderRadius
-                                                                    .all(
-                                                                Radius
-                                                                    .elliptical(
-                                                                        50,
-                                                                        50)),
-                                                        color:
-                                                            Colors.greenAccent),
+                                                        borderRadius: new BorderRadius.all(Radius.elliptical(50, 50)),
+                                                        color: Colors.greenAccent),
                                                     child: Text(categoria))
                                               ],
                                             ),
                                             SizedBox(height: 15),
-                                            Container(
-                                                child: Text(doc['comentario'])),
+                                            Container(child: Text(doc['comentario'])),
                                           ]),
                                     ),
                                   )

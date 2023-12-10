@@ -2,12 +2,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:integrapracas/utils/routes.dart';
 
-class AlteraSenha extends StatefulWidget {
+class ChangePasswordView extends StatefulWidget {
   @override
-  _AlteraSenhaState createState() => _AlteraSenhaState();
+  _ChangePasswordViewState createState() => _ChangePasswordViewState();
 }
 
-class _AlteraSenhaState extends State<AlteraSenha> {
+class _ChangePasswordViewState extends State<ChangePasswordView> {
   final formKey = GlobalKey<FormState>();
   final senhaController = new TextEditingController();
   final senhaConfirmController = new TextEditingController();
@@ -51,15 +51,13 @@ class _AlteraSenhaState extends State<AlteraSenha> {
   Widget tituloRegistro() {
     return Container(
       padding: EdgeInsets.all(30),
-      child: Text('Altere sua senha',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36)),
+      child: Text('Altere sua senha', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36)),
     );
   }
 
   Widget botaoConfirmar() {
     return ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20)),
+        style: ElevatedButton.styleFrom(padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20)),
         child: const Text('Confirmar'),
         onPressed: () {
           if (formKey.currentState!.validate()) {
@@ -69,7 +67,7 @@ class _AlteraSenhaState extends State<AlteraSenha> {
               ..showSnackBar(SnackBar(
                 content: Text('Senha alterada com sucesso!'),
               ));
-            Navigator.of(context).pushNamed(AppRoutes.HOME);
+            Navigator.of(context).pushNamed(AppRoutes.HomeView);
           }
         });
   }
@@ -101,9 +99,7 @@ class _InputSenhaState extends State<InputSenha> {
                 fillColor: Colors.white,
                 filled: true,
                 focusColor: Color(0XFF7A9337),
-                focusedBorder: OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
+                focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
                 border: OutlineInputBorder(),
                 hintText: 'Senha'),
             validator: (value) {

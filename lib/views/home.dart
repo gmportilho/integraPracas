@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:integrapracas/models/praca.dart';
 import 'package:integrapracas/utils/routes.dart';
 
-class ListaPracas extends StatefulWidget {
-  const ListaPracas({Key? key}) : super(key: key);
+class HomeView extends StatefulWidget {
+  const HomeView({Key? key}) : super(key: key);
 
   @override
-  _ListaPracasState createState() => _ListaPracasState();
+  _HomeViewState createState() => _HomeViewState();
 }
 
-class _ListaPracasState extends State<ListaPracas> {
+class _HomeViewState extends State<HomeView> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
@@ -36,9 +36,7 @@ class _ListaPracasState extends State<ListaPracas> {
             builder: (_, snapshot) {
               if (!snapshot.hasData) {
                 return Center(
-                    heightFactor: double.infinity,
-                    widthFactor: double.infinity,
-                    child: CircularProgressIndicator());
+                    heightFactor: double.infinity, widthFactor: double.infinity, child: CircularProgressIndicator());
               }
               return ListView.builder(
                   itemCount: snapshot.data!.docs.length,
@@ -54,10 +52,7 @@ class _ListaPracasState extends State<ListaPracas> {
                           var idPraca = doc.id;
                           var capaPraca = doc['capa'];
                           Navigator.of(context).pushNamed(AppRoutes.PLAZA_INFO,
-                              arguments: Praca(
-                                  id: idPraca,
-                                  nome: nomePraca,
-                                  capa: capaPraca));
+                              arguments: Praca(id: idPraca, nome: nomePraca, capa: capaPraca));
                         },
                         child: Card(
                           elevation: 5,
@@ -70,9 +65,7 @@ class _ListaPracasState extends State<ListaPracas> {
                                   height: 200,
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
-                                    image: DecorationImage(
-                                        image: NetworkImage(doc['capa']),
-                                        fit: BoxFit.fill),
+                                    image: DecorationImage(image: NetworkImage(doc['capa']), fit: BoxFit.fill),
                                   ),
                                 ),
                               ),
@@ -86,20 +79,15 @@ class _ListaPracasState extends State<ListaPracas> {
                                     children: [
                                       Container(height: 20),
                                       Container(
-                                        padding:
-                                            EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                        padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                                         child: Center(
                                           child: Text(doc['nome'],
-                                              style: TextStyle(
-                                                  fontSize: 16.0,
-                                                  fontWeight: FontWeight.bold)),
+                                              style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
                                         ),
                                       ),
                                       Expanded(child: Container()),
                                       Container(
-                                          padding:
-                                              EdgeInsets.fromLTRB(10, 0, 10, 0),
-                                          child: Text(doc['endereço'])),
+                                          padding: EdgeInsets.fromLTRB(10, 0, 10, 0), child: Text(doc['endereço'])),
                                       Container(height: 50)
                                     ],
                                   ),
@@ -193,20 +181,17 @@ class SideDrawer extends StatelessWidget {
                       Icons.delete_forever,
                       color: Colors.red.shade400,
                     ),
-                    title: Text('Apagar conta',
-                        style: TextStyle(color: Colors.red.shade400)),
+                    title: Text('Apagar conta', style: TextStyle(color: Colors.red.shade400)),
                     onTap: () {
                       showDialog(
                           context: context,
                           builder: (_) => AlertDialog(
                                 title: Text(
                                     'Tem certeza que deseja apagar a sua conta? Todos os seus dados serão perdidos.',
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 16)),
+                                    style: TextStyle(color: Colors.black, fontSize: 16)),
                                 actions: [
                                   TextButton(
-                                      style: ElevatedButton.styleFrom(
-                                          backgroundColor: Colors.white),
+                                      style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
                                       onPressed: () {
                                         Navigator.of(context).pop();
                                       },
@@ -215,15 +200,12 @@ class SideDrawer extends StatelessWidget {
                                         style: TextStyle(color: Colors.black),
                                       )),
                                   TextButton(
-                                      style: ElevatedButton.styleFrom(
-                                          backgroundColor: Colors.white),
+                                      style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
                                       onPressed: () async {
                                         await auth.currentUser!.delete();
                                         Navigator.of(context).pushNamed(AppRoutes.LOGIN);
                                       },
-                                      child: Text('Sim, tenho certeza',
-                                          style: TextStyle(
-                                              color: Colors.red.shade400)))
+                                      child: Text('Sim, tenho certeza', style: TextStyle(color: Colors.red.shade400)))
                                 ],
                               ));
                     })

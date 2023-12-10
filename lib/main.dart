@@ -1,21 +1,20 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:integrapracas/utils/routes.dart';
-import 'package:integrapracas/views/alterarDados.dart';
-import 'package:integrapracas/views/alterarSenha.dart';
-import 'package:integrapracas/views/cadastro.dart';
-import 'package:integrapracas/views/classeComentario.dart';
-import 'package:integrapracas/views/evento.dart';
-import 'package:integrapracas/views/manutencao.dart';
-import 'package:integrapracas/views/sugestaoDeMelhoria.dart';
-import 'package:integrapracas/views/infoPraca.dart';
-import 'package:integrapracas/views/listaPracas.dart';
+import 'package:integrapracas/views/change_user_data.dart';
+import 'package:integrapracas/views/change_password.dart';
+import 'package:integrapracas/views/select_comment_category.dart';
+import 'package:integrapracas/views/home.dart';
+import 'package:integrapracas/views/new_maintenance.dart';
+import 'package:integrapracas/views/register.dart';
+import 'package:integrapracas/views/new_event.dart';
+import 'package:integrapracas/views/new_suggestion.dart';
+import 'package:integrapracas/views/plaza_info.dart';
 import 'package:integrapracas/views/login.dart';
-import 'package:integrapracas/views/redefSenha.dart';
-import 'package:integrapracas/views/usuarioComments.dart';
+import 'package:integrapracas/views/forgot_my_password.dart';
+import 'package:integrapracas/views/user_comments.dart';
 
-
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(App());
@@ -39,17 +38,17 @@ class App extends StatelessWidget {
       ),
       routes: {
         AppRoutes.LOGIN: (context) => LoginView(),
-        AppRoutes.REGISTER: (context) => CadastroView(),
-        AppRoutes.CHANGE_USER_DATA: (context) => AlterarDadosView(),
-        AppRoutes.FORGOT_MY_PASSWORD: (context) => RedefinirSenha(),
-        AppRoutes.CHANGE_PASSWORD: (context) => AlteraSenha(),
-        AppRoutes.HOME: (context) => ListaPracas(),
-        AppRoutes.PLAZA_INFO: (context) => InfoPracaView(),
-        AppRoutes.SELECT_CATEGORY: (context) => ClasseComentario(),
-        AppRoutes.ADD_SUGGESTION: (context) => ComentarioPraca(),
-        AppRoutes.ADD_EVENT: (context) => EventoPage(),
-        AppRoutes.ADD_MAINTENANCE: (context) => Manutencao(),
-        AppRoutes.USER_COMMENTS: (context) => UserComments()
+        AppRoutes.REGISTER: (context) => RegisterView(),
+        AppRoutes.CHANGE_USER_DATA: (context) => ChangeUserDataView(),
+        AppRoutes.FORGOT_MY_PASSWORD: (context) => ForgotMyPasswordView(),
+        AppRoutes.CHANGE_PASSWORD: (context) => ChangePasswordView(),
+        AppRoutes.HomeView: (context) => HomeView(),
+        AppRoutes.PLAZA_INFO: (context) => PlazaInfoView(),
+        AppRoutes.SELECT_CATEGORY: (context) => SelectCommentCategoryView(),
+        AppRoutes.ADD_SUGGESTION: (context) => NewSuggestionView(),
+        AppRoutes.ADD_EVENT: (context) => NewEventView(),
+        AppRoutes.ADD_MAINTENANCE: (context) => NewMaintenanceView(),
+        AppRoutes.USER_COMMENTS: (context) => UserCommentsView()
       },
     );
   }

@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class RedefinirSenha extends StatelessWidget {
-  const RedefinirSenha({Key? key}) : super(key: key);
+class ForgotMyPasswordView extends StatelessWidget {
+  const ForgotMyPasswordView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,23 +31,21 @@ class RedefinirSenha extends StatelessWidget {
                 )),
                 SizedBox(height: 8),
                 TextFormField(
-                    controller: redefineSenha,
-                    decoration: InputDecoration(
-                    fillColor: Colors.white,
-                    filled: true,
-                    focusColor: Color(0XFF7A9337),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
-                    border: OutlineInputBorder(),
-                    hintText: 'Email'),),
+                  controller: redefineSenha,
+                  decoration: InputDecoration(
+                      fillColor: Colors.white,
+                      filled: true,
+                      focusColor: Color(0XFF7A9337),
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
+                      border: OutlineInputBorder(),
+                      hintText: 'Email'),
+                ),
                 SizedBox(height: 50),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(padding: EdgeInsets.all(30)),
                   child: const Text('Redefinir senha'),
                   onPressed: () async {
-                    await firebaseAuth.sendPasswordResetEmail(
-                        email: redefineSenha.text.trim());
+                    await firebaseAuth.sendPasswordResetEmail(email: redefineSenha.text.trim());
                     Navigator.of(context).pop();
                   },
                 ),

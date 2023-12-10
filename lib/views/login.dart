@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:integrapracas/utils/routes.dart';
-import 'cadastro.dart';
+import 'register.dart';
 
 class LoginView extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
@@ -143,7 +143,7 @@ class LoginView extends StatelessWidget {
 
     try {
       await _firebaseAuth.signInWithEmailAndPassword(email: emailController.text, password: senhaController.text);
-      Navigator.of(context).pushNamed(AppRoutes.HOME);
+      Navigator.of(context).pushNamed(AppRoutes.HomeView);
     } on FirebaseAuthException catch (e, s) {
       _handleFirebaseLoginWithCredentialsException(e, s);
     }

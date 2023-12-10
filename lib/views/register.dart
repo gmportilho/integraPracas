@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:integrapracas/utils/routes.dart';
 
-class CadastroView extends StatefulWidget {
+class RegisterView extends StatefulWidget {
   @override
-  _CadastroViewState createState() => _CadastroViewState();
+  _RegisterViewState createState() => _RegisterViewState();
 }
 
-class _CadastroViewState extends State<CadastroView> {
+class _RegisterViewState extends State<RegisterView> {
   final formKey = GlobalKey<FormState>();
   final emailController = new TextEditingController();
   final emailconfirmcontroller = new TextEditingController();
@@ -18,8 +18,7 @@ class _CadastroViewState extends State<CadastroView> {
   final firebaseAuth = FirebaseAuth.instance;
 
   void cadastroUser() async {
-    await firebaseAuth.createUserWithEmailAndPassword(
-        email: emailController.text, password: senhaController.text);
+    await firebaseAuth.createUserWithEmailAndPassword(email: emailController.text, password: senhaController.text);
     final user = firebaseAuth.currentUser;
     user!.updateDisplayName(usuarioController.text.toUpperCase());
     user.sendEmailVerification();
@@ -76,15 +75,13 @@ class _CadastroViewState extends State<CadastroView> {
   Widget tituloRegistro() {
     return Container(
       padding: EdgeInsets.all(30),
-      child: Text('Registre sua Conta.',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36)),
+      child: Text('Registre sua Conta.', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36)),
     );
   }
 
   Widget botaoConfirmar() {
     return ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20)),
+        style: ElevatedButton.styleFrom(padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20)),
         child: const Text('Confirmar'),
         onPressed: () {
           if (formKey.currentState!.validate()) {
@@ -126,9 +123,7 @@ class _InputNomeState extends State<InputNome> {
                     fillColor: Colors.white,
                     filled: true,
                     focusColor: Color(0XFF7A9337),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
+                    focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
                     border: OutlineInputBorder(),
                     hintText: 'Nome'),
                 validator: (value) {
@@ -171,9 +166,7 @@ class _InputSenhaState extends State<InputSenha> {
                 fillColor: Colors.white,
                 filled: true,
                 focusColor: Color(0XFF7A9337),
-                focusedBorder: OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
+                focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
                 border: OutlineInputBorder(),
                 hintText: 'Senha'),
             validator: (value) {
@@ -204,26 +197,21 @@ class _InputConfirmarSenhaState extends State<InputConfirmarSenha> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-            alignment: Alignment.centerLeft,
-            child: Text('Confirme a sua senha:')),
+        Container(alignment: Alignment.centerLeft, child: Text('Confirme a sua senha:')),
         SizedBox(height: 3),
         Center(
             child: TextFormField(
-                controller: _CadastroViewState().senhaConfirmController,
+                controller: _RegisterViewState().senhaConfirmController,
                 obscureText: true,
                 decoration: InputDecoration(
                     fillColor: Colors.white,
                     filled: true,
                     focusColor: Color(0XFF7A9337),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
+                    focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
                     border: OutlineInputBorder(),
                     hintText: 'Confirmação de Senha'),
                 validator: (value) {
-                  if (_CadastroViewState().senhaController.text !=
-                      _CadastroViewState().senhaConfirmController.text) {
+                  if (_RegisterViewState().senhaController.text != _RegisterViewState().senhaConfirmController.text) {
                     return 'As senhas não são iguais';
                   }
                   return null;
@@ -259,8 +247,7 @@ class _InputEmailState extends State<InputEmail> {
               fillColor: Colors.white,
               filled: true,
               focusColor: Color(0XFF7A9337),
-              focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
+              focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0XFFBBCC8F), width: 2.0)),
               border: OutlineInputBorder(),
               hintText: 'Email'),
           validator: (email) {
