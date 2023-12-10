@@ -183,7 +183,7 @@ class SideDrawer extends StatelessWidget {
                       title: Text('Sair'),
                       onTap: () async {
                         await FirebaseAuth.instance.signOut();
-                        Navigator.of(context).pushNamed(AppRoutes.HOME);
+                        Navigator.of(context).pushNamed(AppRoutes.LOGIN);
                       },
                     )
                   ],
@@ -219,7 +219,7 @@ class SideDrawer extends StatelessWidget {
                                           backgroundColor: Colors.white),
                                       onPressed: () async {
                                         await auth.currentUser!.delete();
-                                        Navigator.of(context).pushNamed(AppRoutes.HOME);
+                                        Navigator.of(context).pushNamed(AppRoutes.LOGIN);
                                       },
                                       child: Text('Sim, tenho certeza',
                                           style: TextStyle(

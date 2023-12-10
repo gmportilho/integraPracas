@@ -101,7 +101,7 @@ class _AlterarDadosViewState extends State<AlterarDadosView> {
             auth.currentUser!.updateEmail(emailController.text);
             auth.currentUser!
                 .updateDisplayName(usuarioController.text.toUpperCase());
-            Navigator.of(context).pushNamed(AppRoutes.PLAZAS);
+            Navigator.of(context).pushNamed(AppRoutes.HOME);
           }
         });
   }
@@ -257,7 +257,7 @@ class BotaoVoltar extends StatelessWidget {
         style: TextStyle(color: Colors.black87),
       ),
       onPressed: () {
-        Navigator.of(context).pushNamed(AppRoutes.PLAZAS);
+        Navigator.of(context).pushNamed(AppRoutes.HOME);
       },
     );
   }

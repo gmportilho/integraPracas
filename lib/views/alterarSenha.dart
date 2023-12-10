@@ -69,7 +69,7 @@ class _AlteraSenhaState extends State<AlteraSenha> {
               ..showSnackBar(SnackBar(
                 content: Text('Senha alterada com sucesso!'),
               ));
-            Navigator.of(context).pushNamed(AppRoutes.PLAZAS);
+            Navigator.of(context).pushNamed(AppRoutes.HOME);
           }
         });
   }

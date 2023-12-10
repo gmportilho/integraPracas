@@ -95,7 +95,7 @@ class _CadastroViewState extends State<CadastroView> {
                 content: Text('Cadastro efetuado com sucesso!'),
               ));
 
-            Navigator.of(context).pushNamed(AppRoutes.HOME);
+            Navigator.of(context).pushNamed(AppRoutes.LOGIN);
           }
         });
   }

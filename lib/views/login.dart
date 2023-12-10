@@ -143,7 +143,7 @@ class LoginView extends StatelessWidget {
 
     try {
       await _firebaseAuth.signInWithEmailAndPassword(email: emailController.text, password: senhaController.text);
-      Navigator.of(context).pushNamed(AppRoutes.PLAZAS);
+      Navigator.of(context).pushNamed(AppRoutes.HOME);
     } on FirebaseAuthException catch (e, s) {
       _handleFirebaseLoginWithCredentialsException(e, s);
     }
