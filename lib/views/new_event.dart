@@ -47,7 +47,7 @@ class _NewEventViewState extends State<NewEventView> {
     }
 
     return Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
           centerTitle: true,
           title: Text('Evento'),
@@ -67,7 +67,7 @@ class _NewEventViewState extends State<NewEventView> {
                   TextFormField(
                       controller: tituloEvento,
                       decoration: InputDecoration(
-                          fillColor: Colors.white,
+                          fillColor: AppColors.white,
                           filled: true,
                           focusColor: AppColors.green,
                           focusedBorder: OutlineInputBorder(
@@ -84,7 +84,7 @@ class _NewEventViewState extends State<NewEventView> {
                       controller: descricaoEvento,
                       maxLines: 5,
                       decoration: InputDecoration(
-                          fillColor: Colors.white,
+                          fillColor: AppColors.white,
                           filled: true,
                           focusColor: AppColors.green,
                           focusedBorder:
@@ -104,7 +104,7 @@ class _NewEventViewState extends State<NewEventView> {
                     readOnly: true,
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
-                      fillColor: Colors.white,
+                      fillColor: AppColors.white,
                       hintText: getText(),
                       filled: true,
                       focusColor: AppColors.green,

@@ -35,7 +35,7 @@ class _RegisterViewState extends State<RegisterView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: Theme.of(context).colorScheme.background,
         body: SafeArea(
           child: Form(
             key: formKey,
@@ -121,7 +121,7 @@ class _InputNomeState extends State<InputNome> {
         Center(
             child: TextFormField(
                 decoration: InputDecoration(
-                    fillColor: Colors.white,
+                    fillColor: AppColors.white,
                     filled: true,
                     focusColor: AppColors.green,
                     focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.lightGreen, width: 2.0)),
@@ -164,7 +164,7 @@ class _InputSenhaState extends State<InputSenha> {
           child: TextFormField(
             obscureText: true,
             decoration: InputDecoration(
-                fillColor: Colors.white,
+                fillColor: AppColors.white,
                 filled: true,
                 focusColor: AppColors.green,
                 focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.lightGreen, width: 2.0)),
@@ -205,7 +205,7 @@ class _InputConfirmarSenhaState extends State<InputConfirmarSenha> {
                 controller: _RegisterViewState().senhaConfirmController,
                 obscureText: true,
                 decoration: InputDecoration(
-                    fillColor: Colors.white,
+                    fillColor: AppColors.white,
                     filled: true,
                     focusColor: AppColors.green,
                     focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.lightGreen, width: 2.0)),
@@ -245,7 +245,7 @@ class _InputEmailState extends State<InputEmail> {
           controller: widget.controller,
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
-              fillColor: Colors.white,
+              fillColor: AppColors.white,
               filled: true,
               focusColor: AppColors.green,
               focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.lightGreen, width: 2.0)),
@@ -270,12 +270,12 @@ class BotaoVoltar extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.white,
           padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-          side: BorderSide(color: Colors.black)),
+          side: BorderSide(color: AppColors.black)),
       child: Text(
         'Voltar',
-        style: TextStyle(color: Colors.black87),
+        style: TextStyle(color: AppColors.black),
       ),
       onPressed: () {
         Navigator.of(context).pop();

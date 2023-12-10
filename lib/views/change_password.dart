@@ -17,7 +17,7 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: Theme.of(context).colorScheme.background,
         body: SafeArea(
           child: Form(
             key: formKey,
@@ -68,7 +68,7 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
               ..showSnackBar(SnackBar(
                 content: Text('Senha alterada com sucesso!'),
               ));
-            Navigator.of(context).pushNamed(AppRoutes.HomeView);
+            Navigator.of(context).pushNamed(AppRoutes.HOME_VIEW);
           }
         });
   }
@@ -97,7 +97,7 @@ class _InputSenhaState extends State<InputSenha> {
           child: TextFormField(
             obscureText: true,
             decoration: InputDecoration(
-                fillColor: Colors.white,
+                fillColor: AppColors.white,
                 filled: true,
                 focusColor: AppColors.green,
                 focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.lightGreen, width: 2.0)),
@@ -124,12 +124,12 @@ class BotaoVoltar extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.white,
           padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-          side: BorderSide(color: Colors.black)),
+          side: BorderSide(color: AppColors.black)),
       child: Text(
         'Voltar',
-        style: TextStyle(color: Colors.black87),
+        style: TextStyle(color: AppColors.black),
       ),
       onPressed: () {
         Navigator.of(context).pop();

@@ -12,7 +12,7 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: Theme.of(context).colorScheme.background,
         // appBar: AppBar(title: Text('Cadastro')),
         body: SafeArea(
           child: SingleChildScrollView(
@@ -49,13 +49,13 @@ class LoginView extends StatelessWidget {
                             onTap: () => {Navigator.of(context).pushNamed(AppRoutes.FORGOT_MY_PASSWORD)},
                             child: Text('Esqueci minha senha',
                                 style: TextStyle(
-                                    color: Colors.grey.shade600, decoration: TextDecoration.underline, fontSize: 18))),
+                                    color: AppColors.grey, decoration: TextDecoration.underline, fontSize: 18))),
                         SizedBox(height: 15),
                         Divider(thickness: 2),
                         SizedBox(height: 30),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
+                              backgroundColor: AppColors.white,
                               padding: EdgeInsets.symmetric(horizontal: 70, vertical: 25),
                               side: BorderSide(color: AppColors.green)),
                           child: Text(
@@ -144,7 +144,7 @@ class LoginView extends StatelessWidget {
 
     try {
       await _firebaseAuth.signInWithEmailAndPassword(email: emailController.text, password: senhaController.text);
-      Navigator.of(context).pushNamed(AppRoutes.HomeView);
+      Navigator.of(context).pushNamed(AppRoutes.HOME_VIEW);
     } on FirebaseAuthException catch (e, s) {
       _handleFirebaseLoginWithCredentialsException(e, s);
     }

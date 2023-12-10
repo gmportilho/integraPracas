@@ -33,7 +33,7 @@ class SelectCommentCategoryView extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('EVENTO', style: TextStyle(color: Colors.black, fontSize: 18)),
+                    Text('EVENTO', style: TextStyle(color: AppColors.black, fontSize: 18)),
                   ],
                 ),
               ),
@@ -56,7 +56,7 @@ class SelectCommentCategoryView extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("MANUTENÇÃO", style: TextStyle(color: Colors.black, fontSize: 18)),
+                    Text("MANUTENÇÃO", style: TextStyle(color: AppColors.black, fontSize: 18)),
                   ],
                 ),
               ),
@@ -79,7 +79,7 @@ class SelectCommentCategoryView extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('SUGESTÃO DE MELHORIA', style: TextStyle(color: Colors.black, fontSize: 18)),
+                    Text('SUGESTÃO DE MELHORIA', style: TextStyle(color: AppColors.black, fontSize: 18)),
                   ],
                 ),
               ),

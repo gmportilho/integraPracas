@@ -11,7 +11,7 @@ class ForgotMyPasswordView extends StatelessWidget {
     final redefineSenha = new TextEditingController();
 
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         centerTitle: true,
         title: Text('Redefinir a Senha'),
@@ -34,7 +34,7 @@ class ForgotMyPasswordView extends StatelessWidget {
                 TextFormField(
                   controller: redefineSenha,
                   decoration: InputDecoration(
-                      fillColor: Colors.white,
+                      fillColor: AppColors.white,
                       filled: true,
                       focusColor: AppColors.green,
                       focusedBorder:

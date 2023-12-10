@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:integrapracas/models/praca.dart';
+import 'package:integrapracas/themes/appcolors.dart';
 import 'package:integrapracas/utils/routes.dart';
 
 class PlazaInfoView extends StatefulWidget {
@@ -17,7 +18,7 @@ class _PlazaInfoViewState extends State<PlazaInfoView> {
     var dadosPraca = ModalRoute.of(context)!.settings.arguments as Praca;
 
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         title: Text(
           '${dadosPraca.nome}',
@@ -42,9 +43,9 @@ class _PlazaInfoViewState extends State<PlazaInfoView> {
                   children: [
                     Icon(
                       Icons.message,
-                      color: Colors.black,
+                      color: AppColors.black,
                     ),
-                    Text('Adicionar Comentário', style: TextStyle(color: Colors.black)),
+                    Text('Adicionar Comentário', style: TextStyle(color: AppColors.black)),
                   ],
                 ),
               )),
@@ -89,7 +90,7 @@ class _PlazaInfoViewState extends State<PlazaInfoView> {
                                                     padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                                                     decoration: BoxDecoration(
                                                         borderRadius: new BorderRadius.all(Radius.elliptical(50, 50)),
-                                                        color: Colors.greenAccent),
+                                                        color: AppColors.lightGreen),
                                                     child: Text(categoria))
                                               ],
                                             ),

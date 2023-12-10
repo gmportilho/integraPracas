@@ -19,7 +19,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     final _firestore = FirebaseFirestore.instance;
     return Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: Theme.of(context).colorScheme.background,
         key: _scaffoldKey,
         drawer: SideDrawer(),
         appBar: AppBar(
@@ -134,13 +134,13 @@ class SideDrawer extends StatelessWidget {
                     child: Text(
                       '${auth.currentUser?.displayName}',
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white, fontSize: 25),
+                      style: TextStyle(color: AppColors.white, fontSize: 25),
                     ),
                   ),
                   Text(
                     '${auth.currentUser?.email}',
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white, fontSize: 15),
+                    style: TextStyle(color: AppColors.white, fontSize: 15),
                   ),
                 ],
               ),
@@ -180,33 +180,33 @@ class SideDrawer extends StatelessWidget {
                 ListTile(
                     leading: Icon(
                       Icons.delete_forever,
-                      color: Colors.red.shade400,
+                      color: AppColors.red,
                     ),
-                    title: Text('Apagar conta', style: TextStyle(color: Colors.red.shade400)),
+                    title: Text('Apagar conta', style: TextStyle(color: AppColors.red)),
                     onTap: () {
                       showDialog(
                           context: context,
                           builder: (_) => AlertDialog(
                                 title: Text(
                                     'Tem certeza que deseja apagar a sua conta? Todos os seus dados serão perdidos.',
-                                    style: TextStyle(color: Colors.black, fontSize: 16)),
+                                    style: TextStyle(color: AppColors.black, fontSize: 16)),
                                 actions: [
                                   TextButton(
-                                      style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
+                                      style: ElevatedButton.styleFrom(backgroundColor: AppColors.white),
                                       onPressed: () {
                                         Navigator.of(context).pop();
                                       },
                                       child: Text(
                                         'Não',
-                                        style: TextStyle(color: Colors.black),
+                                        style: TextStyle(color: AppColors.black),
                                       )),
                                   TextButton(
-                                      style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
+                                      style: ElevatedButton.styleFrom(backgroundColor: AppColors.white),
                                       onPressed: () async {
                                         await auth.currentUser!.delete();
                                         Navigator.of(context).pushNamed(AppRoutes.LOGIN);
                                       },
-                                      child: Text('Sim, tenho certeza', style: TextStyle(color: Colors.red.shade400)))
+                                      child: Text('Sim, tenho certeza', style: TextStyle(color: AppColors.red)))
                                 ],
                               ));
                     })

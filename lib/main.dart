@@ -27,15 +27,15 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.light,
-        primaryColor: AppColors.brown, //Marrom
-        backgroundColor: AppColors.beige, //Bege
+        primaryColor: AppColors.brown,
         elevatedButtonTheme: ElevatedButtonThemeData(
             style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(AppColors.green))),
         appBarTheme: AppBarTheme(
           backgroundColor: AppColors.brown,
-          titleTextStyle: TextStyle(color: Colors.white),
-          iconTheme: IconThemeData(color: Colors.white),
+          titleTextStyle: TextStyle(color: AppColors.white),
+          iconTheme: IconThemeData(color: AppColors.white),
         ),
+        colorScheme: Theme.of(context).colorScheme.copyWith(background: AppColors.beige),
       ),
       routes: {
         AppRoutes.LOGIN: (context) => LoginView(),
@@ -43,7 +43,7 @@ class App extends StatelessWidget {
         AppRoutes.CHANGE_USER_DATA: (context) => ChangeUserDataView(),
         AppRoutes.FORGOT_MY_PASSWORD: (context) => ForgotMyPasswordView(),
         AppRoutes.CHANGE_PASSWORD: (context) => ChangePasswordView(),
-        AppRoutes.HomeView: (context) => HomeView(),
+        AppRoutes.HOME_VIEW: (context) => HomeView(),
         AppRoutes.PLAZA_INFO: (context) => PlazaInfoView(),
         AppRoutes.SELECT_CATEGORY: (context) => SelectCommentCategoryView(),
         AppRoutes.ADD_SUGGESTION: (context) => NewSuggestionView(),

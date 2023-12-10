@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:integrapracas/themes/appcolors.dart';
 
 class UserCommentsView extends StatelessWidget {
   const UserCommentsView({Key? key}) : super(key: key);
@@ -11,7 +12,7 @@ class UserCommentsView extends StatelessWidget {
     final auth = FirebaseAuth.instance;
 
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         title: Text(
           'Meus Comentários',
@@ -46,7 +47,7 @@ class UserCommentsView extends StatelessWidget {
                                   SlidableAction(
                                       label: 'Apagar',
                                       icon: Icons.delete,
-                                      backgroundColor: Colors.red,
+                                      backgroundColor: AppColors.red,
                                       onPressed: (buildContext) {
                                         _firestore.collection("comentarios").doc(doc.id).delete();
                                       })
@@ -75,9 +76,9 @@ class UserCommentsView extends StatelessWidget {
                                                       padding: EdgeInsets.all(5),
                                                       decoration: BoxDecoration(
                                                           borderRadius: new BorderRadius.all(Radius.elliptical(50, 50)),
-                                                          color: Colors.greenAccent),
-                                                      child:
-                                                          Text(doc['categoria'], style: TextStyle(color: Colors.black)))
+                                                          color: AppColors.lightGreen),
+                                                      child: Text(doc['categoria'],
+                                                          style: TextStyle(color: AppColors.black)))
                                                 ],
                                               ),
                                               SizedBox(height: 12),

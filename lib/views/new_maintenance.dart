@@ -16,7 +16,7 @@ class NewMaintenanceView extends StatelessWidget {
     var dadosPraca = ModalRoute.of(context)!.settings.arguments as Praca;
 
     return Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
           centerTitle: true,
           title: Text('Sugestão de melhoria'),
@@ -39,7 +39,7 @@ class NewMaintenanceView extends StatelessWidget {
                     controller: NewSuggestionView,
                     maxLines: 5,
                     decoration: InputDecoration(
-                        fillColor: Colors.white,
+                        fillColor: AppColors.white,
                         filled: true,
                         focusColor: AppColors.green,
                         focusedBorder:
