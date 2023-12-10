@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:integrapracas/utils/routes.dart';
 
 class AlteraSenha extends StatefulWidget {
   @override
@@ -68,7 +69,7 @@ class _AlteraSenhaState extends State<AlteraSenha> {
               ..showSnackBar(SnackBar(
                 content: Text('Senha alterada com sucesso!'),
               ));
-            Navigator.of(context).pushNamed('/pracas');
+            Navigator.of(context).pushNamed(AppRoutes.PLAZAS);
           }
         });
   }

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:integrapracas/models/praca.dart';
+import 'package:integrapracas/utils/routes.dart';
 
 class ListaPracas extends StatefulWidget {
   const ListaPracas({Key? key}) : super(key: key);
@@ -52,7 +53,7 @@ class _ListaPracasState extends State<ListaPracas> {
                           var nomePraca = doc['nome'];
                           var idPraca = doc.id;
                           var capaPraca = doc['capa'];
-                          Navigator.of(context).pushNamed('/comments',
+                          Navigator.of(context).pushNamed(AppRoutes.PLAZA_INFO,
                               arguments: Praca(
                                   id: idPraca,
                                   nome: nomePraca,
@@ -169,20 +170,20 @@ class SideDrawer extends StatelessWidget {
                         leading: Icon(Icons.edit),
                         title: Text('Editar Dados'),
                         onTap: () async {
-                          Navigator.of(context).pushNamed('/edita');
+                          Navigator.of(context).pushNamed(AppRoutes.CHANGE_USER_DATA);
                         }),
                     ListTile(
                         leading: Icon(Icons.chat_bubble),
                         title: Text('Meus Comentários'),
                         onTap: () {
-                          Navigator.of(context).pushNamed('/my-comments');
+                          Navigator.of(context).pushNamed(AppRoutes.USER_COMMENTS);
                         }),
                     ListTile(
                       leading: Icon(Icons.exit_to_app),
                       title: Text('Sair'),
                       onTap: () async {
                         await FirebaseAuth.instance.signOut();
-                        Navigator.of(context).pushNamed('/');
+                        Navigator.of(context).pushNamed(AppRoutes.HOME);
                       },
                     )
                   ],
@@ -218,7 +219,7 @@ class SideDrawer extends StatelessWidget {
                                           backgroundColor: Colors.white),
                                       onPressed: () async {
                                         await auth.currentUser!.delete();
-                                        Navigator.of(context).pushNamed('/');
+                                        Navigator.of(context).pushNamed(AppRoutes.HOME);
                                       },
                                       child: Text('Sim, tenho certeza',
                                           style: TextStyle(

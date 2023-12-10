@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:integrapracas/utils/routes.dart';
 
 class AlterarDadosView extends StatefulWidget {
   @override
@@ -64,7 +65,7 @@ class _AlterarDadosViewState extends State<AlterarDadosView> {
                           child: ElevatedButton(
                               child: Text('Alterar Senha'),
                               onPressed: () {
-                                Navigator.of(context).pushNamed('/alteraSenha');
+                                Navigator.of(context).pushNamed(AppRoutes.CHANGE_PASSWORD);
                               }),
                         ),
                       ],
@@ -100,7 +101,7 @@ class _AlterarDadosViewState extends State<AlterarDadosView> {
             auth.currentUser!.updateEmail(emailController.text);
             auth.currentUser!
                 .updateDisplayName(usuarioController.text.toUpperCase());
-            Navigator.of(context).pushNamed('/pracas');
+            Navigator.of(context).pushNamed(AppRoutes.PLAZAS);
           }
         });
   }
@@ -256,7 +257,7 @@ class BotaoVoltar extends StatelessWidget {
         style: TextStyle(color: Colors.black87),
       ),
       onPressed: () {
-        Navigator.of(context).pushNamed('/pracas');
+        Navigator.of(context).pushNamed(AppRoutes.PLAZAS);
       },
     );
   }

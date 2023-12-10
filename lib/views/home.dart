@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:integrapracas/utils/routes.dart';
 import 'package:integrapracas/views/alterarDados.dart';
 import 'package:integrapracas/views/alterarSenha.dart';
 import 'package:integrapracas/views/cadastro.dart';
 import 'package:integrapracas/views/classeComentario.dart';
 import 'package:integrapracas/views/evento.dart';
+import 'package:integrapracas/views/manutencao.dart';
 import 'package:integrapracas/views/sugestaoDeMelhoria.dart';
 import 'package:integrapracas/views/infoPraca.dart';
 import 'package:integrapracas/views/listaPracas.dart';
@@ -30,17 +32,18 @@ class App extends StatelessWidget {
         ),
       ),
       routes: {
-        '/': (context) => LoginView(),
-        '/cadastro': (context) => CadastroView(),
-        '/edita': (context) => AlterarDadosView(),
-        '/redefinir-senha': (context) => RedefinirSenha(),
-        '/alteraSenha': (context) => AlteraSenha(),
-        '/pracas': (context) => ListaPracas(),
-        '/add-melhoria': (context) => ComentarioPraca(),
-        '/add-evento': (context) => EventoPage(),
-        '/selecionaCategoria': (context) => ClasseComentario(),
-        '/comments': (context) => InfoPracaView(),
-        '/my-comments': (context) => UserComments()
+        AppRoutes.HOME: (context) => LoginView(),
+        AppRoutes.REGISTER: (context) => CadastroView(),
+        AppRoutes.CHANGE_USER_DATA: (context) => AlterarDadosView(),
+        AppRoutes.FORGOT_MY_PASSWORD: (context) => RedefinirSenha(),
+        AppRoutes.CHANGE_PASSWORD: (context) => AlteraSenha(),
+        AppRoutes.PLAZAS: (context) => ListaPracas(),
+        AppRoutes.PLAZA_INFO: (context) => InfoPracaView(),
+        AppRoutes.SELECT_CATEGORY: (context) => ClasseComentario(),
+        AppRoutes.ADD_SUGGESTION: (context) => ComentarioPraca(),
+        AppRoutes.ADD_EVENT: (context) => EventoPage(),
+        AppRoutes.ADD_MAINTENANCE: (context) => Manutencao(),
+        AppRoutes.USER_COMMENTS: (context) => UserComments()
       },
     );
   }

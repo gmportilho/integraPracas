@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:integrapracas/utils/routes.dart';
 
 class CadastroView extends StatefulWidget {
   @override
@@ -94,7 +95,7 @@ class _CadastroViewState extends State<CadastroView> {
                 content: Text('Cadastro efetuado com sucesso!'),
               ));
 
-            Navigator.of(context).pushNamed('/');
+            Navigator.of(context).pushNamed(AppRoutes.HOME);
           }
         });
   }

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:integrapracas/models/praca.dart';
+import 'package:integrapracas/utils/routes.dart';
 
 class InfoPracaView extends StatefulWidget {
   const InfoPracaView({Key? key}) : super(key: key);
@@ -35,7 +36,7 @@ class _InfoPracaViewState extends State<InfoPracaView> {
                 ),
                 onPressed: () {
                   Navigator.of(context)
-                      .pushNamed('/selecionaCategoria', arguments: dadosPraca);
+                      .pushNamed(AppRoutes.SELECT_CATEGORY, arguments: dadosPraca);
                 },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

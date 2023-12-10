@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:integrapracas/models/praca.dart';
+import 'package:integrapracas/utils/routes.dart';
 
 class ClasseComentario extends StatelessWidget {
   const ClasseComentario({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class ClasseComentario extends StatelessWidget {
                         MediaQuery.of(context).size.height * 0.15)),
                 onPressed: () {
                   Navigator.of(context)
-                      .pushNamed('/add-evento', arguments: dadosPraca);
+                      .pushNamed(AppRoutes.ADD_EVENT, arguments: dadosPraca);
                 },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -52,7 +53,7 @@ class ClasseComentario extends StatelessWidget {
                         MediaQuery.of(context).size.height * 0.15)),
                 onPressed: () {
                   Navigator.of(context)
-                      .pushNamed('/addcomment', arguments: dadosPraca);
+                      .pushNamed(AppRoutes.ADD_MAINTENANCE, arguments: dadosPraca);
                 },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -78,7 +79,7 @@ class ClasseComentario extends StatelessWidget {
                 ),
                 onPressed: () {
                   Navigator.of(context)
-                      .pushNamed('/add-melhoria', arguments: dadosPraca);
+                      .pushNamed(AppRoutes.ADD_SUGGESTION, arguments: dadosPraca);
                 },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
