@@ -1,14 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Praca {
   String id;
   String capa;
   String nome;
-  String localizacao;
   String endereco;
+  GeoPoint localizacao;
 
   Praca(
-      {this.id = '',
-      this.capa = '',
-      this.nome = '',
-      this.localizacao = '',
-      this.endereco = ''});
+      {required this.id,
+      required this.capa,
+      required this.nome,
+      required this.localizacao,
+      required this.endereco});
 }
