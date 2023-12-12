@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:integrapracas/themes/appcolors.dart';
@@ -15,13 +16,23 @@ import 'package:integrapracas/views/login.dart';
 import 'package:integrapracas/views/forgot_my_password.dart';
 import 'package:integrapracas/views/user_comments.dart';
 
+Future<String> _verifyLoginSession() async {
+  final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  return firebaseAuth.currentUser == null ? AppRoutes.LOGIN : AppRoutes.HOME_VIEW;
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(App());
+  final String _initialRoute = await _verifyLoginSession();
+  runApp(App(_initialRoute));
 }
 
 class App extends StatelessWidget {
+  App(this.initialRoute);
+
+  final String initialRoute;
+
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -37,6 +48,7 @@ class App extends StatelessWidget {
         ),
         colorScheme: Theme.of(context).colorScheme.copyWith(background: AppColors.beige),
       ),
+      initialRoute: initialRoute,
       routes: {
         AppRoutes.LOGIN: (context) => LoginView(),
         AppRoutes.REGISTER: (context) => RegisterView(),

@@ -39,7 +39,7 @@ class LoginView extends StatelessWidget {
                           style: ElevatedButton.styleFrom(padding: EdgeInsets.symmetric(horizontal: 40, vertical: 25)),
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
-                              realizaLogin(context);
+                              _realizaLogin(context);
                             }
                           },
                           child: Text('Login'),
@@ -76,77 +76,89 @@ class LoginView extends StatelessWidget {
         ));
   }
 
-  void realizaLogin(BuildContext context) async {
-    void _handleFirebaseLoginWithCredentialsException(FirebaseAuthException e, StackTrace s) {
-      if (e.code == 'user-disabled') {
-        String erroMsg = 'O usuário informado está desabilitado.';
-        showDialog(
-            context: context,
-            builder: (_) => AlertDialog(
-                  title: Text(erroMsg),
-                  actions: [
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: Text('OK'))
-                  ],
-                ));
-        print(e.code.toString());
-      } else if (e.code == 'user-not-found') {
-        String erroMsg = 'O usuário informado não está cadastrado.';
-        showDialog(
-            context: context,
-            builder: (_) => AlertDialog(
-                  title: Text(erroMsg),
-                  actions: [
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: Text('OK'))
-                  ],
-                ));
-        print(e.code.toString());
-      } else if (e.code == 'invalid-email') {
-        String erroMsg = 'O domínio do e-mail informado é inválido.';
-        showDialog(
-            context: context,
-            builder: (_) => AlertDialog(
-                  title: Text(erroMsg),
-                  actions: [
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: Text('OK'))
-                  ],
-                ));
-        print(e.code.toString());
-      } else if (e.code == 'wrong-password') {
-        String erroMsg = 'Email ou senha informados estão incorretos';
-        showDialog(
-            context: context,
-            builder: (_) => AlertDialog(
-                  title: Text(erroMsg),
-                  actions: [
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: Text('OK'))
-                  ],
-                ));
-      } else {
-        return null;
-      }
-    }
-
+  void _realizaLogin(BuildContext context) async {
     try {
       await _firebaseAuth.signInWithEmailAndPassword(email: emailController.text, password: senhaController.text);
       Navigator.of(context).pushNamed(AppRoutes.HOME_VIEW);
-    } on FirebaseAuthException catch (e, s) {
-      _handleFirebaseLoginWithCredentialsException(e, s);
+    } on FirebaseAuthException catch (error) {
+      _handleFirebaseLoginWithCredentialsException(context, error);
     }
+  }
+}
+
+void _handleFirebaseLoginWithCredentialsException(BuildContext context, FirebaseAuthException error) {
+  if (error.code == 'user-disabled') {
+    String erroMsg = 'O usuário informado está desabilitado.';
+    showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+              title: Text(erroMsg),
+              actions: [
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text('OK'))
+              ],
+            ));
+    print(error.code.toString());
+  } else if (error.code == 'user-not-found') {
+    String erroMsg = 'O usuário informado não está cadastrado.';
+    showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+              title: Text(erroMsg),
+              actions: [
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text('OK'))
+              ],
+            ));
+    print(error.code.toString());
+  } else if (error.code == 'invalid-email') {
+    String erroMsg = 'O domínio do e-mail informado é inválido.';
+    showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+              title: Text(erroMsg),
+              actions: [
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text('OK'))
+              ],
+            ));
+    print(error.code.toString());
+  } else if (error.code == 'wrong-password') {
+    String erroMsg = 'Email ou senha informados estão incorretos';
+    showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+              title: Text(erroMsg),
+              actions: [
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text('OK'))
+              ],
+            ));
+  } else {
+    String erroMsg = error.message!;
+    showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+              title: Text(erroMsg),
+              actions: [
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text('OK'))
+              ],
+            ));
   }
 }

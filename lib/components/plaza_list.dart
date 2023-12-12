@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:integrapracas/components/plaza_card.dart';
 import 'package:integrapracas/models/praca.dart';
-import 'package:integrapracas/utils/routes.dart';
 
 class PlazaList extends StatelessWidget {
   final List<QueryDocumentSnapshot<Object?>> documents;

@@ -1,10 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:integrapracas/models/person.dart';
 import 'package:integrapracas/themes/appcolors.dart';
 import 'package:integrapracas/utils/routes.dart';
 
+void _logout(BuildContext context) async {
+  await FirebaseAuth.instance.signOut();
+  Navigator.of(context).pushReplacementNamed(AppRoutes.LOGIN);
+}
+
 class SideDrawer extends StatelessWidget {
   final auth = FirebaseAuth.instance;
+  late final Person user =
+      Person(email: auth.currentUser!.email, id: auth.currentUser!.uid, name: auth.currentUser!.displayName);
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +25,13 @@ class SideDrawer extends StatelessWidget {
                 children: [
                   Container(
                     child: Text(
-                      '${auth.currentUser?.displayName}',
+                      '${user.name}',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: AppColors.white, fontSize: 25),
                     ),
                   ),
                   Text(
-                    '${auth.currentUser?.email}',
+                    '${user.email}',
                     textAlign: TextAlign.center,
                     style: TextStyle(color: AppColors.white, fontSize: 15),
                   ),
@@ -56,8 +64,7 @@ class SideDrawer extends StatelessWidget {
                       leading: Icon(Icons.exit_to_app),
                       title: Text('Sair'),
                       onTap: () async {
-                        await FirebaseAuth.instance.signOut();
-                        Navigator.of(context).pushNamed(AppRoutes.LOGIN);
+                        _logout(context);
                       },
                     )
                   ],

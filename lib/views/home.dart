@@ -2,8 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:integrapracas/components/plaza_list.dart';
 import 'package:integrapracas/components/side_drawer.dart';
-import 'package:integrapracas/models/praca.dart';
-import 'package:integrapracas/utils/routes.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
